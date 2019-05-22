@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.test.demomybatis.dao.StudentDAO">
+    <!--<update id="updateStudentsByIdAndName" parameterType="java.util.List">-->
+        <!--<foreach collection="list" index="index" item="item" open="" separator=";" close="">-->
+            <!--update student-->
+            <!--<set>-->
+                <!--<if test="item.age !=null">age=#{item.age},</if>-->
+                <!--<if test="item.score !=null">score=#{item.score},</if>-->
+            <!--</set>-->
+            <!--where id=#{item.id,jdbcType=INTEGER} and name=#{item.name,jdbcType=VARCHAR}-->
+        <!--</foreach>-->
+    <!--</update>-->
+
+    <update id="updateStudentsByIdAndName" parameterType="com.test.demomybatis.pojo.Student">
+
+            update student
+            <set>
+                <if test="age !=null">age=#{age},</if>
+                <if test="score !=null">score=#{score},</if>
+            </set>
+            where id=#{id,jdbcType=INTEGER} and name=#{name,jdbcType=VARCHAR}
+
+    </update>
+
+<!--<delete id="deleteByidsAndNames" parameterType="ava.util.List">-->
+    <!--<foreach collection="list" index="index" item="item" open="" separator=";" close="">-->
+        <!--delete from student-->
+        <!--where id=#{item.id,jdbcType=INTEGER} and name=#{item.name,jdbcType=VARCHAR}-->
+    <!--</foreach>-->
+
+<!--</delete>-->
+
+</mapper>
